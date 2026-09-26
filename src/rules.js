@@ -14,13 +14,6 @@ const RULES = [
     reason: "May delete files or directories."
   },
   {
-    id: "filesystem-write",
-    severity: "REVIEW",
-    score: 4,
-    patterns: [/\b(write[_ -]?file|edit[_ -]?file|modify[_ -]?file|save[_ -]?file|filesystem write|create[_ -]?file|rename)\b/i],
-    reason: "Can modify local filesystem state."
-  },
-  {
     id: "filesystem-read",
     severity: "REVIEW",
     score: 2,
@@ -40,41 +33,6 @@ const RULES = [
     score: 7,
     patterns: [/\b(secret|token|api[_ -]?key|credential|password|private[_ -]?key|env(?:ironment)? variable|dotenv)\b/i],
     reason: "May access credentials, secrets, or environment variables."
-  },
-  {
-    id: "database-write",
-    severity: "REVIEW",
-    score: 5,
-    patterns: [/\b(insert|update|delete from|drop table|alter table|database write|execute sql|query database|sql)\b/i],
-    reason: "May read or modify database state."
-  },
-  {
-    id: "package-install",
-    severity: "HIGH",
-    score: 7,
-    patterns: [/\b(npm install|pip install|package install|apt install|brew install|dependency install)\b/i],
-    reason: "Can install or alter executable dependencies."
-  },
-  {
-    id: "browser-control",
-    severity: "REVIEW",
-    score: 4,
-    patterns: [/\b(browser|playwright|selenium|navigate|click|web automation)\b/i],
-    reason: "Can control a browser or web session."
-  },
-  {
-    id: "messaging-send",
-    severity: "REVIEW",
-    score: 4,
-    patterns: [/\b(send email|send message|post message|slack|gmail|smtp|sms)\b/i],
-    reason: "Can send messages or communications."
-  },
-  {
-    id: "financial-action",
-    severity: "HIGH",
-    score: 9,
-    patterns: [/\b(payment|transfer money|purchase|checkout|refund|invoice pay|bank transfer)\b/i],
-    reason: "May initiate or affect financial actions."
   }
 ];
 
@@ -134,12 +92,13 @@ export function analyzeTools(tools = []) {
   else if (summary.review > 0) overall = "REVIEW";
 
   return {
-    product: "AgentShield MCP Inspector",
-    version: "0.1.0",
+    product: "AgentShield MCP Inspector Lite",
+    version: "0.1.0-lite.1",
+    edition: "Lite",
     generatedAt: new Date().toISOString(),
     overall,
     summary,
     tools: results,
-    disclaimer: "Static heuristic analysis only. A SAFE result is not a guarantee of safety. Inspect source code and run untrusted MCP servers inside an isolated environment."
+    disclaimer: "Lite static heuristic analysis only. A SAFE result is not a guarantee of safety."
   };
 }

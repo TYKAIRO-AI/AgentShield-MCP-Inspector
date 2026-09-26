@@ -1,20 +1,45 @@
-# AgentShield MCP Inspector
+# AgentShield MCP Inspector Lite
 
-Local-first MCP security inspector for discovering tools, analyzing schemas, and flagging risky capabilities before an AI agent trusts them.
+Free public edition of AgentShield for basic MCP tool-metadata security inspection.
 
 **Publisher:** Mahmoud Hisham  
-**Version:** 0.1.0  
+**Edition:** Lite  
+**Version:** 0.1.0-lite.1  
 **Runtime:** Node.js 20+
 
-## What it does
+## What Lite does
 
-AgentShield inspects MCP tool names, descriptions, and input schemas and produces deterministic, explainable verdicts:
+AgentShield Lite analyzes MCP tool names, descriptions, and input schemas and returns explainable verdicts:
 
 - `SAFE`
 - `REVIEW`
 - `HIGH RISK`
 
-Current rules detect security-relevant capabilities including shell execution, destructive file actions, filesystem access, external network requests, secrets/environment access, database actions, package installation, browser automation, messaging, and financial actions.
+Lite includes a deliberately limited starter ruleset for:
+
+- Shell / OS command execution
+- Destructive file operations
+- Filesystem reads
+- External network access
+- Secrets / credential access
+
+It supports static JSON scanning and also runs as an MCP server exposing the `analyze_tools` tool.
+
+## What is reserved for AgentShield Pro
+
+The paid Pro edition is being developed separately and is not included in this public repository. Planned Pro capabilities include:
+
+- Direct stdio MCP discovery
+- Expanded security rules
+- Allowlist / blocklist policy files
+- Trusted-domain policy
+- Better network classification
+- CI/CD exit codes and security gates
+- Scan history and scan diff
+- SARIF / advanced reporting
+- Source and package inspection
+- Remote MCP scanning
+- Advanced evidence and policy controls
 
 ## Install
 
@@ -34,44 +59,29 @@ npm test
 npm run scan:sample
 ```
 
-## Scan MCP tool metadata from JSON
+## Scan tool metadata from JSON
 
 ```bash
 node src/cli.js scan-json examples/sample-tools.json --md-out report.md --json-out report.json
 ```
 
-## Scan a local stdio MCP server
-
-```bash
-node src/cli.js scan-stdio --command node --arg ./server.js
-```
-
-> Warning: starting an unknown MCP server can execute startup code. Use a VM, container, or sandbox for untrusted software.
-
-## Run AgentShield as an MCP server
+## Run Lite as an MCP server
 
 ```bash
 node src/index.js
 ```
 
-AgentShield exposes:
+The Lite MCP server exposes:
 
 - `analyze_tools`
-- `scan_stdio_server`
 
-## Security model
+## Security note
 
-AgentShield v0.1 is a heuristic metadata/schema inspector. A SAFE verdict is not a guarantee of safety, and AgentShield is not a sandbox, antivirus, or exploit detector.
+AgentShield performs heuristic metadata/schema inspection. A SAFE verdict is not proof that software is safe.
 
-## Roadmap
+## Pro
 
-- Allowlist / blocklist policies
-- Trusted-domain policy
-- CI exit codes
-- Scan diff
-- SARIF export
-- Remote MCP scanning
-- Source/package analysis
+AgentShield Pro is kept outside this public repository. A purchase link will be added when the first Pro release is ready.
 
 ## Ownership
 

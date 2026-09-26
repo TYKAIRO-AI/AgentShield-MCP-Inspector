@@ -2,27 +2,26 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { analyzeTools } from "./rules.js";
-import { scanStdio } from "./scanner.js";
 import { toMarkdown } from "./report.js";
 
 function help() {
   console.log(`
-AgentShield MCP Inspector v0.1.0
+AgentShield MCP Inspector Lite v0.1.0-lite.1
 
 Usage:
-  agentshield scan-json <tools.json> [--json-out report.json] [--md-out report.md]
-  agentshield scan-stdio --command <executable> [--arg <value> ...] [--json-out report.json] [--md-out report.md]
+  agentshield-lite scan-json <tools.json> [--json-out report.json] [--md-out report.md]
+
+The Lite edition performs static metadata/schema analysis only.
+Direct MCP server discovery is reserved for AgentShield Pro.
 `);
 }
 
 function parseArgs(argv) {
   const [mode, ...rest] = argv;
-  const out = { mode, positional: [], args: [] };
+  const out = { mode, positional: [] };
   for (let i = 0; i < rest.length; i++) {
     const v = rest[i];
-    if (v === "--command") out.command = rest[++i];
-    else if (v === "--arg") out.args.push(rest[++i]);
-    else if (v === "--json-out") out.jsonOut = rest[++i];
+    if (v === "--json-out") out.jsonOut = rest[++i];
     else if (v === "--md-out") out.mdOut = rest[++i];
     else out.positional.push(v);
   }
@@ -49,16 +48,11 @@ async function main() {
     return emit(analyzeTools(tools), opts);
   }
 
-  if (opts.mode === "scan-stdio") {
-    if (!opts.command) throw new Error("Missing --command.");
-    return emit(await scanStdio({ command: opts.command, args: opts.args }), opts);
-  }
-
   help();
   process.exitCode = 1;
 }
 
 main().catch((err) => {
-  console.error(`[AgentShield] ${err.message}`);
+  console.error(`[AgentShield Lite] ${err.message}`);
   process.exitCode = 1;
 });

@@ -1,12 +1,12 @@
 {
-  "name": "agentshield-mcp-inspector",
-  "version": "0.1.0",
-  "description": "Local-first MCP security inspector that discovers tools, analyzes schemas, flags risky capabilities, and exports Markdown/JSON reports.",
+  "name": "agentshield-mcp-inspector-lite",
+  "version": "0.1.0-lite.1",
+  "description": "Free public edition of AgentShield for basic MCP tool-metadata security inspection.",
   "type": "module",
   "main": "src/index.js",
   "bin": {
-    "agentshield": "src/cli.js",
-    "agentshield-mcp": "src/index.js"
+    "agentshield-lite": "src/cli.js",
+    "agentshield-lite-mcp": "src/index.js"
   },
   "scripts": {
     "start": "node src/index.js",
@@ -18,7 +18,6 @@
   "license": "SEE LICENSE.txt",
   "engines": {"node": ">=20"},
   "dependencies": {
-    "@modelcontextprotocol/client": "^2.1.0",
     "@modelcontextprotocol/server": "^2.1.0",
     "zod": "^4.1.0"
   }

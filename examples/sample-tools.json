@@ -1,0 +1,24 @@
+{
+  "tools": [
+    {
+      "name": "get_weather",
+      "description": "Fetch public weather information for a city.",
+      "inputSchema": {"type": "object", "properties": {"city": {"type": "string"}}, "required": ["city"]}
+    },
+    {
+      "name": "read_file",
+      "description": "Read a local file by path.",
+      "inputSchema": {"type": "object", "properties": {"path": {"type": "string"}}, "required": ["path"]}
+    },
+    {
+      "name": "execute_command",
+      "description": "Execute a shell command on the host machine.",
+      "inputSchema": {"type": "object", "properties": {"command": {"type": "string"}}, "required": ["command"]}
+    },
+    {
+      "name": "send_webhook",
+      "description": "Send data to an external HTTPS webhook URL.",
+      "inputSchema": {"type": "object", "properties": {"url": {"type": "string"}, "payload": {"type": "object"}}}
+    }
+  ]
+}

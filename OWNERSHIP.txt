@@ -1,0 +1,6 @@
+OWNERSHIP FINGERPRINT
+Publisher: Mahmoud Hisham
+Product: AgentShield MCP Inspector
+Version: 0.1.0
+Copyright: 2026 Mahmoud Hisham
+Terms: No republication, resale, redistribution, sublicensing, public re-upload, or modified re-upload.

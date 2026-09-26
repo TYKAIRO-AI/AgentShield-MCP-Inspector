@@ -1,5 +1,7 @@
 # AgentShield MCP Inspector Lite
 
+[![MCPize](https://mcpize.com/badge/@mahmoudhisham564/agentshield-inspector)](https://mcpize.com/mcp/agentshield-inspector)
+
 Free public edition of AgentShield for basic MCP tool-metadata security inspection.
 
 **Publisher:** Mahmoud Hisham  
@@ -46,6 +48,16 @@ The paid Pro edition is being developed separately and is not included in this p
 ```bash
 npm install
 ```
+
+## Connect via MCPize
+
+Use this MCP server instantly with no local installation:
+
+```bash
+npx -y mcpize connect @mahmoudhisham564/agentshield-inspector --client claude
+```
+
+Or connect at: **https://mcpize.com/mcp/agentshield-inspector**
 
 ## Test
 

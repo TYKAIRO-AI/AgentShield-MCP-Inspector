@@ -1,27 +1,29 @@
 ---
-name: agentshield-mcp-inspector
-description: Inspect MCP tool metadata and schemas for risky capabilities before connecting them to an AI agent.
-version: 0.1.0
+name: agentshield-mcp-inspector-lite
+description: Perform basic static MCP tool metadata and schema inspection for risky capabilities.
+version: 0.1.0-lite.1
 publisher: Mahmoud Hisham
 ---
 
-# AgentShield MCP Inspector
+# AgentShield MCP Inspector Lite
 
-Use AgentShield when the user wants to review an MCP server, MCP tool list, or MCP schema for security-relevant capabilities.
+Use AgentShield Lite when the user wants a basic security review of an MCP tool list or MCP schemas already available as metadata.
 
 ## Workflow
 
-1. Prefer static analysis when tool metadata is already available.
-2. Use `analyze_tools` for a provided tool list.
-3. Use `scan_stdio_server` only when the user explicitly wants discovery from a local MCP command.
-4. Never invoke the target server's discovered tools during a scan.
-5. Report results as SAFE, REVIEW, or HIGH RISK.
-6. For every REVIEW or HIGH RISK result, state the matched capability and practical reason.
-7. Remind the user that heuristic inspection cannot prove safety.
+1. Use `analyze_tools` for a provided tool list.
+2. Do not claim that Lite performs direct MCP server discovery.
+3. Report results as SAFE, REVIEW, or HIGH RISK.
+4. For every REVIEW or HIGH RISK result, state the matched capability and reason.
+5. Remind the user that heuristic metadata inspection cannot prove safety.
+
+## Pro boundary
+
+Direct MCP discovery, expanded rules, policy files, CI/CD gates, scan diff, and advanced reporting are reserved for AgentShield Pro.
 
 ## Ownership
 
 Publisher: Mahmoud Hisham  
-Product: AgentShield MCP Inspector v0.1.0
+Product: AgentShield MCP Inspector Lite v0.1.0-lite.1
 
-Republishing, resale, redistribution, public re-upload, sublicensing, or distributing modified copies is prohibited.
+Republishing, resale, redistribution, public re-upload, sublicensing, or distributing modified copies as a competing product is prohibited.

@@ -1,5 +1,7 @@
 # AgentShield MCP Inspector Lite
 
+
+> **A TYKAIRO AI product** — Founded by **Mahmoud Hisham**
 Free public edition of AgentShield for basic MCP tool-metadata security inspection.
 
 **Publisher:** Mahmoud Hisham  

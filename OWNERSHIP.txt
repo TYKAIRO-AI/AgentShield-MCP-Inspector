@@ -1,5 +1,6 @@
 OWNERSHIP FINGERPRINT
 Publisher: Mahmoud Hisham
+Organization: TYKAIRO AI
 Product: AgentShield MCP Inspector
 Version: 0.1.0
 Copyright: 2026 Mahmoud Hisham

@@ -13,12 +13,30 @@
     "scan:sample": "node src/cli.js scan-json examples/sample-tools.json",
     "test": "node --test"
   },
-  "keywords": ["mcp", "model-context-protocol", "security", "scanner", "agent", "ai", "tooling"],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "security",
+    "scanner",
+    "agent",
+    "ai",
+    "tooling"
+  ],
   "author": "Mahmoud Hisham",
   "license": "SEE LICENSE.txt",
-  "engines": {"node": ">=20"},
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.1.0",
     "zod": "^4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TYKAIRO-AI/AgentShield-MCP-Inspector.git"
+  },
+  "homepage": "https://github.com/TYKAIRO-AI/AgentShield-MCP-Inspector#readme",
+  "bugs": {
+    "url": "https://github.com/TYKAIRO-AI/AgentShield-MCP-Inspector/issues"
   }
 }
